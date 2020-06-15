@@ -27,13 +27,6 @@ def fill_list(a_shop_list):
         a_shop_list.append(el)
 
 
-def print_choice():
-    print(" ")
-    print("Jaką chcesz wykonać akcję na liście? (list - lista możliwych opcji)")
-    choice = str(input())
-    valid_choice(choice)
-
-
 def valid_choice(a_choice):
     if a_choice == "list":
         print("Możesz:")
@@ -43,15 +36,19 @@ def valid_choice(a_choice):
         print("'wróć' - wróć poprzednią operację")
         print("'reset' - zresetuj wszystko - wróć do początku programu")
 
-
 print("Zrób zakupy z Python Shopping 1.0!")
-
 print(" ")
+
 print("Utwórz listę zakupów: (każdy enter to nowa pozycja, aby zakończyć 'k')")
 shop_list = []
 fill_list(shop_list)
 write_list()
 
-print_choice()
+x = 0
+while x < 2:
+    print(" ")
+    print("Jaką chcesz wykonać akcję na liście? (list - lista możliwych opcji)")
+    choice = str(input())
+    valid_choice(choice)
 
 
