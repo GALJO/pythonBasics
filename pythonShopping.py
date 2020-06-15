@@ -27,14 +27,44 @@ def fill_list(a_shop_list):
         a_shop_list.append(el)
 
 
+def valid_del(a_rmv):
+    try:
+        int(a_rmv)
+    except:
+        print("Niepoprawny numer!")
+        return
+
+    if a_rmv == 0:
+        shop_list.pop(int(a_rmv))
+        return
+
+    if int(a_rmv) > len(shop_list):
+        print("Niepoprawny numer!")
+        return
+
+    shop_list.pop(int(a_rmv) - 1)
+
+
 def valid_choice(a_choice):
     if a_choice == "list":
         print("Możesz:")
-        print("'plus' - dodać nowy punkt")
+        print("'dodaj' - dodać nowy punkt")
         print("'usuń' - usunąć punkt")
         print("'zalicz' - dodaj tick do punktu i przenieś go na dół")
         print("'wróć' - wróć poprzednią operację")
         print("'reset' - zresetuj wszystko - wróć do początku programu")
+
+    if a_choice == "dodaj":
+        print(" ")
+        print("Wpisz punkt do dodania:")
+        shop_list.append(str(input()))
+
+    if a_choice == "usuń":
+        print(" ")
+        print("Wpisz numer punktu, który chcesz usunąć:")
+        rmv = input()
+        valid_del(rmv)
+
 
 print("Zrób zakupy z Python Shopping 1.0!")
 print(" ")
@@ -42,10 +72,9 @@ print(" ")
 print("Utwórz listę zakupów: (każdy enter to nowa pozycja, aby zakończyć 'k')")
 shop_list = []
 fill_list(shop_list)
-write_list()
 
-x = 0
-while x < 2:
+while True:
+    write_list()
     print(" ")
     print("Jaką chcesz wykonać akcję na liście? (list - lista możliwych opcji)")
     choice = str(input())
