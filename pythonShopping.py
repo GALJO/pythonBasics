@@ -83,7 +83,6 @@ def valid_choice(a_choice):
         print("'wróć' - wróć poprzednią operację")
         print("'reset' - zresetuj wszystko - wróć do początku programu")
         print("'wyjdź' - wyłącz aplikację")
-        # TODO do ogarnięcia "usuń wykonane" (usuwanie tych, które na poz -1 mają ticka)
         return
 
     if a_choice == "dodaj":
@@ -96,7 +95,7 @@ def valid_choice(a_choice):
     if a_choice == "usuń":
         save_old_list()
         print(" ")
-        print("Wpisz numer punktu, który chcesz usunąć:")
+        print("Wpisz numer punktu, który chcesz usunąć ('zal' kiedy chcesz usunąć zaliczone):")
         rmv = input()
         valid_del(rmv)
         return
