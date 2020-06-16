@@ -1,17 +1,3 @@
-def list_finish(a_position):
-    if a_position == "k":
-        return 3
-    else:
-        return 0
-
-
-def k_remove_safely(a_shop_list=[]):
-    try:
-        a_shop_list.remove("k")
-    except:
-        return 0
-
-
 def write_list():
     print(" ")
     print("Twoja nowa lista to:")
@@ -24,11 +10,20 @@ def fill_list(a_shop_list):
     while True:
         el = input()
         if el == "k":
+            save_old_list()
             return
-        a_shop_list.append(el)
+        a_shop_list.append(str(el))
 
 
 def valid_del(a_rmv):
+    if a_rmv == "zal":
+        save_old_list()
+        for i in range(len(shop_list)):
+            point = shop_list[i - 1]
+            if point[-1] == "✓":
+                shop_list.pop(i - 1)
+        return
+
     try:
         int(a_rmv)
     except:
@@ -72,13 +67,19 @@ def valid_tick():
     shop_list.append(tick_point_str + " ✓")
 
 
+def save_old_list():
+    old_list.clear()
+    for i in range(len(shop_list)):
+        old_list.append("x")
+        old_list[i] = shop_list[i]
+
+
 def valid_choice(a_choice):
     if a_choice == "list":
         print("Możesz:")
         print("'dodaj' - dodać nowy punkt")
-        print("'usuń' - usunąć punkt")
+        print("'usuń' - usunąć punkt (jeśli w pole wpisane 'zal' to usunie wszystkie zaliczone punkty)")
         print("'zalicz' - dodaj tick do punktu i przenieś go na dół")
-        # TODO zrób "wróć" (lista old_shop_list dla przypomnienia)
         print("'wróć' - wróć poprzednią operację")
         print("'reset' - zresetuj wszystko - wróć do początku programu")
         print("'wyjdź' - wyłącz aplikację")
@@ -86,12 +87,14 @@ def valid_choice(a_choice):
         return
 
     if a_choice == "dodaj":
+        save_old_list()
         print(" ")
         print("Wpisz punkt do dodania:")
         shop_list.append(str(input()))
         return
 
     if a_choice == "usuń":
+        save_old_list()
         print(" ")
         print("Wpisz numer punktu, który chcesz usunąć:")
         rmv = input()
@@ -99,6 +102,7 @@ def valid_choice(a_choice):
         return
 
     if a_choice == "zalicz":
+        save_old_list()
         print(" ")
         print("Wpisz numer punktu, który chcesz zaliczyć:")
         valid_tick()
@@ -114,6 +118,7 @@ def valid_choice(a_choice):
             print("|PROCESS STARTED|")
             print("_______________________")
             shop_list.clear()
+            old_list.clear()
             fill_list(shop_list)
             return
         else:
@@ -133,6 +138,14 @@ def valid_choice(a_choice):
             print("Anulowano")
             return
 
+    if a_choice == "wróć":
+        shop_list.clear()
+        for i in range(len(old_list)):
+            shop_list.append("x")
+            shop_list[i] = old_list[i]
+        print("Przywrócono do stanu sprzed ostatniej operacji.")
+        return
+
 
 print("|PROCESS STARTED|")
 print("_______________________")
@@ -140,6 +153,7 @@ print("Zrób zakupy z Python Shopping 1.0!")
 print(" ")
 
 shop_list = []
+old_list = []
 fill_list(shop_list)
 
 while True:
