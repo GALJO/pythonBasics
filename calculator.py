@@ -1,3 +1,6 @@
+import stop
+
+
 def input_number(message):
     print(message)
     return input()
@@ -11,7 +14,7 @@ def finish_app(numb1):
     if numb1 == "s":
         print(" ")
         print("Dziękuję za korzystanie z kalkulatora!")
-        exit(0)
+        stop.main()
 
 
 def is_number1_float(numb1):
@@ -19,7 +22,7 @@ def is_number1_float(numb1):
         float(numb1)
     except ValueError:
         print("Nieprawidłowy pierwszy argument!")
-        exit(1)
+        calc_main()
 
 
 def is_number2_float(numb2):
@@ -27,7 +30,7 @@ def is_number2_float(numb2):
         float(numb2)
     except ValueError:
         print("Nieprawidłowy drugi argument!")
-        exit(1)
+        calc_main()
 
 
 def validation(numb1, numb2):
@@ -35,28 +38,33 @@ def validation(numb1, numb2):
     is_number2_float(numb2)
 
 
-print("Witaj w moim pierwszym kalkulatorze w języku Python!")
-
-x = 0
-
-while x < 10:
+def calc_main():
     print(" ")
-    one = input_number("Podaj pierwszą liczbę (aby zakończyć 's')")
-    finish_app(one)
-    two = input_number("Podaj drugą liczbę")
+    print("Witaj w moim pierwszym kalkulatorze w języku Python!")
 
-    validation(one, two)
+    x = 0
 
-    format_one = float(one[0:])
-    format_two = float(two[0:])
+    while x < 10:
+        print(" ")
+        one = input_number("Podaj pierwszą liczbę (aby zakończyć 's')")
+        finish_app(one)
+        two = input_number("Podaj drugą liczbę")
 
-    addition = format_one + format_two
-    subtraction = format_one - format_two
-    multiplication = format_one * format_two
-    division = format_one / format_two
+        validation(one, two)
 
-    print("Twój wynik to:")
-    print_result(one, two, addition, "+")
-    print_result(one, two, subtraction, "-")
-    print_result(one, two, multiplication, "*")
-    print_result(one, two, division, "/")
+        format_one = float(one[0:])
+        format_two = float(two[0:])
+
+        addition = format_one + format_two
+        subtraction = format_one - format_two
+        multiplication = format_one * format_two
+        division = format_one / format_two
+
+        print("Twój wynik to:")
+        print_result(one, two, addition, "+")
+        print_result(one, two, subtraction, "-")
+        print_result(one, two, multiplication, "*")
+        print_result(one, two, division, "/")
+
+
+calc_main()
