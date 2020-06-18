@@ -1,8 +1,10 @@
-def write_list():
+import lib
+
+def print_list():
     print(" ")
     print("Twoja nowa lista to:")
     for i in range(len(shop_list)):
-        print(str(i + 1) + "." + " " + shop_list[i])
+        print("{}. {}".format(str(i + 1), str(shop_list[i])))
 
 
 def fill_list(a_shop_list):
@@ -11,12 +13,14 @@ def fill_list(a_shop_list):
         el = input()
         if el == "k":
             save_old_list()
-            return
+            return None
         a_shop_list.append(str(el))
 
 
-def valid_del(a_rmv):
-    if a_rmv == "zal":
+def remove():
+    el = input()
+
+    if el == "zal":
         save_old_list()
         for i in range(len(shop_list)):
             point = shop_list[i - 1]
@@ -24,47 +28,45 @@ def valid_del(a_rmv):
                 shop_list.pop(i - 1)
         return
 
-    try:
-        int(a_rmv)
-    except:
+    if not lib.is_int(el):
         print("Niepoprawny numer!")
-        return
+        return None
 
-    if a_rmv == 0:
-        shop_list.pop(int(a_rmv))
-        return
+    el = int(el)
 
-    if int(a_rmv) > len(shop_list):
+    if el == 0:
+        shop_list.pop(el)
+        return None
+
+    if el > len(shop_list):
         print("Niepoprawny numer!")
-        return
+        return None
 
-    shop_list.pop(int(a_rmv) - 1)
+    shop_list.pop(el - 1)
 
 
-def valid_tick():
-    tick_point = input()
+def tick():
+    el = input()
 
-    try:
-        int(tick_point)
-    except:
+    if not lib.is_int(el):
+        print("Niepoprawny numer!")
+        return None
+
+    el = int(el)
+
+    if el == 0:
+        el_str = shop_list[el]
+        shop_list.pop(el)
+        shop_list.append(el_str + " ✓")
+        return None
+
+    if el > len(shop_list):
         print("Nieprawidłowy numer!")
-        return
+        return None
 
-    tick_point = int(tick_point)
-
-    if tick_point == 0:
-        tick_point_str = shop_list[tick_point]
-        shop_list.pop(tick_point)
-        shop_list.append(tick_point_str + " ✓")
-        return
-
-    if tick_point > len(shop_list):
-        print("Nieprawidłowy numer!")
-        return
-
-    tick_point_str = shop_list[tick_point - 1]
-    shop_list.pop(tick_point - 1)
-    shop_list.append(tick_point_str + " ✓")
+    el_str = shop_list[el - 1]
+    shop_list.pop(el - 1)
+    shop_list.append(el_str + " ✓")
 
 
 def save_old_list():
@@ -74,8 +76,19 @@ def save_old_list():
         old_list[i] = shop_list[i]
 
 
-def valid_choice(a_choice):
-    if a_choice == "list":
+def sure_system(message):
+    print(" ")
+    print("{} Potwierdź (T) badź anuluj (N)".format(message))
+    ans = str(input())
+    if ans == "T" or ans == "t":
+        return True
+    else:
+        return False
+
+
+def choice():
+    ans = str(input())
+    if ans == "list":
         print("Możesz:")
         print("'dodaj' - dodać nowy punkt")
         print("'usuń' - usunąć punkt (jeśli w pole wpisane 'zal' to usunie wszystkie zaliczone punkty)")
@@ -83,67 +96,66 @@ def valid_choice(a_choice):
         print("'wróć' - wróć poprzednią operację")
         print("'reset' - zresetuj wszystko - wróć do początku programu")
         print("'wyjdź' - wyłącz aplikację")
-        return
+        return None
 
-    if a_choice == "dodaj":
+    if ans == "dodaj":
         save_old_list()
         print(" ")
         print("Wpisz punkt do dodania:")
         shop_list.append(str(input()))
-        return
+        return None
 
-    if a_choice == "usuń":
+    if ans == "usuń":
         save_old_list()
         print(" ")
         print("Wpisz numer punktu, który chcesz usunąć ('zal' kiedy chcesz usunąć zaliczone):")
-        rmv = input()
-        valid_del(rmv)
-        return
+        remove()
+        return None
 
-    if a_choice == "zalicz":
+    if ans == "zalicz":
         save_old_list()
         print(" ")
         print("Wpisz numer punktu, który chcesz zaliczyć:")
-        valid_tick()
-        return
+        tick()
+        return None
 
-    if a_choice == "reset":
-        print(" ")
-        print("Czy na pewno chcesz zresetować listę? Poskutkuje to straceniem WSZYSTKICH DANYCH i uruchomi ponownie "
-              "aplikację. Potwierdź (T) badź anuluj (N)")
-        sure = str(input())
-        if sure == "T" or sure == "t":
-            print("|PROCESS CLOSED|")
-            print("|PROCESS STARTED|")
-            print("_______________________")
+    if ans == "reset":
+        ans = sure_system("Czy na pewno chcesz zresetować listę? Poskutkuje to straceniem WSZYSTKICH DANYCH.")
+        if ans:
             shop_list.clear()
             old_list.clear()
+            print("|PROCESS RESTART|")
+            print("_______________________")
+            print(" ")
             fill_list(shop_list)
-            return
         else:
-            print("Anulowano")
-            return
+            print("|PROCESS RESTART CANCELED|")
+            print("_______________________")
+            print(" ")
+            return None
 
-    if a_choice == "wyjdź":
-        print(" ")
-        print("Czy na pewno chcesz wyłączyć aplikację? Poskutkuje to straceniem WSZYSTKICH DANYCH. Wyjdź (T) badź "
-              "anuluj (N)")
-        sure = str(input())
-        if sure == "T" or sure == "t":
-            print("|PROCESS CLOSED|")
+    if ans == "wyjdź":
+        ans = sure_system("Czy na pewno chcesz wyłączyć aplikację? Poskutkuje to straceniem WSZYSTKICH DANYCH.")
+        if ans:
+            print("|PROCESS FINISHED|")
             print("_______________________")
             exit(0)
         else:
-            print("Anulowano")
-            return
+            print("|PROCESS FINISH CANCELED|")
+            print("_______________________")
+            print(" ")
+            return None
 
-    if a_choice == "wróć":
+    if ans == "wróć":
         shop_list.clear()
         for i in range(len(old_list)):
             shop_list.append("x")
             shop_list[i] = old_list[i]
         print("Przywrócono do stanu sprzed ostatniej operacji.")
-        return
+        return None
+    else:
+        print("Niepoprawna nazwa akcji.")
+        return None
 
 
 print("|PROCESS STARTED|")
@@ -156,8 +168,7 @@ old_list = []
 fill_list(shop_list)
 
 while True:
-    write_list()
+    print_list()
     print(" ")
     print("Jaką chcesz wykonać akcję na liście? (list - lista możliwych opcji)")
-    choice = str(input())
-    valid_choice(choice)
+    choice()

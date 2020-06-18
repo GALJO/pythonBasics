@@ -1,3 +1,6 @@
+# TODO refactor and update calculator
+
+
 def input_number(message):
     print(message)
     return input()
