@@ -1,9 +1,3 @@
-import stop
-
-shop_list = []
-old_list = []
-
-
 def write_list():
     print(" ")
     print("Twoja nowa lista to:")
@@ -32,7 +26,7 @@ def valid_del(a_rmv):
 
     try:
         int(a_rmv)
-    except ValueError:
+    except:
         print("Niepoprawny numer!")
         return
 
@@ -52,7 +46,7 @@ def valid_tick():
 
     try:
         int(tick_point)
-    except ValueError:
+    except:
         print("Nieprawidłowy numer!")
         return
 
@@ -119,12 +113,12 @@ def valid_choice(a_choice):
               "aplikację. Potwierdź (T) badź anuluj (N)")
         sure = str(input())
         if sure == "T" or sure == "t":
+            print("|PROCESS CLOSED|")
+            print("|PROCESS STARTED|")
+            print("_______________________")
             shop_list.clear()
             old_list.clear()
             fill_list(shop_list)
-            print("|PROCESS CLOSED|")
-            print("_______________________")
-            main()
             return
         else:
             print("Anulowano")
@@ -138,7 +132,7 @@ def valid_choice(a_choice):
         if sure == "T" or sure == "t":
             print("|PROCESS CLOSED|")
             print("_______________________")
-            run.main()
+            exit(0)
         else:
             print("Anulowano")
             return
@@ -152,17 +146,18 @@ def valid_choice(a_choice):
         return
 
 
-def main():
-    print("|PROCESS STARTED|")
-    print("_______________________")
-    print("Zrób zakupy z Python Shopping 1.0!")
+print("|PROCESS STARTED|")
+print("_______________________")
+print("Zrób zakupy z Python Shopping 1.0!")
+print(" ")
+
+shop_list = []
+old_list = []
+fill_list(shop_list)
+
+while True:
+    write_list()
     print(" ")
-
-    fill_list(shop_list)
-
-    while True:
-        write_list()
-        print(" ")
-        print("Jaką chcesz wykonać akcję na liście? (list - lista możliwych opcji)")
-        choice = str(input())
-        valid_choice(choice)
+    print("Jaką chcesz wykonać akcję na liście? (list - lista możliwych opcji)")
+    choice = str(input())
+    valid_choice(choice)
