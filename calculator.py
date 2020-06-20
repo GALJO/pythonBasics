@@ -3,7 +3,7 @@ def print_result(numb1, numb2, result, op):
 
 
 def finish_app():
-    if numbers == "s":
+    if one == "s":
         return True
     return False
 
@@ -22,12 +22,6 @@ def is_number2_float():
     except ValueError:
         return False
     return True
-
-
-def len_valid():
-    if int(len(numbers)) >= 5:
-        return True
-    return False
 
 
 def symb_valid():
@@ -59,30 +53,28 @@ print("Witaj w moim kalkulatorze w języku Python!")
 
 while True:
     print(" ")
-    print("Wprowadź działanie (możesz dodawać: '+' odejmować: '-' mnożyć: '*' dzielić: '/'  lub wyjść: 's'):")
+    print("Wprowadź argumenty:")
+    print("Pierwsza liczba (aby wyjść 's'):")
+    one = input()
 
-    numbers = input()
     if finish_app():
         print(" ")
         print("Dziękuję za korzystanie z kalkulatora!")
         exit(0)
-
-    if not len_valid():
-        print("Za mało argumentów!")
-        continue
-
-    one = numbers[0]
-    symb = str(numbers[2])
-    two = numbers[4]
-
     if not is_number1_float():
-        print("Niepoprawny pierwszy argument!")
+        print("Podałeś niepoprawną liczbę.")
         continue
-    if not is_number2_float():
-        print("Niepoprawny drugi argument!")
-        continue
+
+    print("Znak matematyczny (+, -, * lub /)")
+    symb = input()
     if not symb_valid():
-        print("Podałeś niepoprawny symbol!")
+        print("Podałeś niepoprawny symbol.")
+        continue
+
+    print("Druga liczba:")
+    two = input()
+    if not is_number2_float():
+        print("Podałeś niepoprawną liczbę.")
         continue
 
     one = float(one)
