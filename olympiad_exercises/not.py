@@ -1,4 +1,4 @@
-def find_the_best(_tab, _num):
+def binary_search(_tab, _num):
     _start = 0
     _end = len(_tab) - 1
     while _start < _end:
@@ -19,30 +19,32 @@ def counter_of_longest(_tab):
         if _tab[_start] < _tab[_end]:
             _counter += 1
         else:
-            item = _res.get(_counter, 0)
-            _res.update({_counter: item + 1})
+            _item = _res.get(_counter, 0)
+            _res.update({_counter: _item + 1})
             _counter = 1
             continue
     return _res
 
 
+def main():
+    _dict_of_longest = counter_of_longest(a)
+    _dol_keys = sorted(list(_dict_of_longest.keys()))
+    for i in range(q):
+        _active_quest = int(input())
+        if _active_quest == 1:
+            print(n)
+            continue
+        _sum = 0
+        _start = binary_search(_dol_keys, _active_quest)
+        for _ndx in range(_start, len(_dol_keys)):
+            _len = _dol_keys[_ndx]
+            _occur = _dict_of_longest.get(_len)
+            if _len >= _active_quest:
+                _sum += (_len - _active_quest + 1) * _occur
+        print(_sum)
+
+
 n = int(input())
 a = list(map(int, input().split()))
 q = int(input())
-
-results = []
-dict_of_longest = counter_of_longest(a)
-dol_keys = sorted(list(dict_of_longest.keys()))
-for i in range(q):
-    active_quest = int(input())
-    if active_quest == 1:
-        print(n)
-        continue
-    sum_ = 0
-    start = find_the_best(dol_keys, active_quest)
-    for ndx in range(start, len(dol_keys)):
-        length = dol_keys[ndx]
-        occur = dict_of_longest.get(length)
-        if length >= active_quest:
-            sum_ += (length - active_quest + 1) * occur
-    print(sum_)
+main()
