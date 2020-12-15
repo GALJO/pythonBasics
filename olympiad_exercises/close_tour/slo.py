@@ -89,8 +89,6 @@ def validate_syntax_system(_list):
                 return False
             if _i - 1 == -1:
                 return False
-            if _were_million:
-                return False
             if _were_thousand:
                 return False
             _were_thousand = True
