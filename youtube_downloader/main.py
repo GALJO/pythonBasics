@@ -55,7 +55,7 @@ for i in range(0, amount_of_links * 2, 2):
         print()
         continue
 
-    download_actual_stream(actual_stream, resolutions[actual_res_ndx])
+    download_actual_stream(actual_stream[0], resolutions[actual_res_ndx])
     done += 1
     print('----')
     print()
