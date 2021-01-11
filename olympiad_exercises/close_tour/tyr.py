@@ -1,4 +1,9 @@
 def main():
+    """
+    Znajduje dwa punkty, miedzy ktorymi jest najmniejsze nachylenie.
+    Uzywa wzoru na nachylenie (|yi - yj|) / (|xi - xy|).
+    :return: tablica dwoch wspolrzednych
+    """
     _res = []
     _res_value = -1
     for _i in range(n):
