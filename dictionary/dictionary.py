@@ -1,5 +1,5 @@
 def read_dict_info():
-    _inp = open(file='logs/slo_inp.txt', mode='r')
+    _inp = open(file='../logs/slo_inp.txt', mode='r')
     _n = int(_inp.readline())
     _dict = {}
     for _i in range(_n):

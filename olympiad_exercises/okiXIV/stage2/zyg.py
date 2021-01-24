@@ -8,9 +8,6 @@ def find_fraction(_desc):
     return _res
 
 
-def count_
-
-
 def main():
     _fraction = find_fraction(zigzag_desc)
 
