@@ -11,6 +11,18 @@ def write_quests(_amount):
     return _list
 
 
+def binary_search(_tab, _x):
+    start = 0
+    end = len(_tab) - 1
+    while start < end:
+        cnt = (start + end) // 2
+        if _tab[cnt] < _x:
+            start = cnt + 1
+        else:
+            end = cnt
+    return start
+
+
 def convert_date(_quest, _months_1, _months_2):
     _am_of_days = _quest[0]
     for _i in range(_quest[1] - 1):
@@ -49,4 +61,4 @@ quests = write_quests(z)
 results = main()
 
 for el in results:
-    print(el)
+   print(el)
