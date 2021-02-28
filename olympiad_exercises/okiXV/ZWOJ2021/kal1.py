@@ -30,25 +30,31 @@ def binary_search(_tab, _x):
     return start
 
 
-def days_amount(_prefixes, _quest):
-    return _prefixes[_quest[1] - 1] + _quest[0]
-
-
-def convert_cal(_prefix, _days):
-    _month = binary_search(_prefix, _days)
-    _day = _days - _prefix[_month - 1]
-    return '{} {}'.format(_day, _month)
+def convert_date(_quest, _months_1, _months_2):
+    _am_of_days = _quest[0]
+    for _i in range(_quest[1] - 1):
+        _am_of_days += _months_1[_i]
+    _2_month = 1
+    _2_day = 0
+    for _i in range(len(_months_2)):
+        if _am_of_days > _months_2[_i]:
+            _am_of_days -= _months_2[_i]
+            _2_month += 1
+        else:
+            _2_day = _am_of_days
+            break
+    return '{} {}'.format(_2_day, _2_month)
 
 
 def main():
+    _results = []
     for _i in range(z):
         _act_quest = quests[_i]
         if _act_quest[2] == 'A':
-            _days = days_amount(a_months_prefix, _act_quest)
-            print(convert_cal(b_months_prefix, _days))
+            _results.append(convert_date(_act_quest, a_months, b_months))
         else:
-            _days = days_amount(b_months_prefix, _act_quest)
-            print(convert_cal(a_months_prefix, _days))
+            _results.append(convert_date(_act_quest, b_months, a_months))
+    return _results
 
 
 nm = input().split()
@@ -61,4 +67,7 @@ b_months_prefix = make_prefixes(b_months)
 z = int(input())
 quests = write_quests(z)
 
-main()
+results = main()
+
+for el in results:
+   print(el)
