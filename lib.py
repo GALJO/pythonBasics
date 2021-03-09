@@ -25,3 +25,15 @@ def random_number(_min, _max, am):
     for i in range(am):
         res.append(int(random.random() * (_max - _min) + _min))
     return res
+
+
+def binary_search_lower_bound(_tab, _x):
+    start = 0
+    end = len(_tab) - 1
+    while start < end:
+        cnt = (start + end) // 2
+        if _tab[cnt] < _x:
+            start = cnt + 1
+        else:
+            end = cnt
+    return start
