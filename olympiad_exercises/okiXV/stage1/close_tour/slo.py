@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/X_c5-zBjq7K3WVRw17khA520/site/?key=statement - 69% points
+
 def convert_to_numbers(_words, _dict):
     """
     Zamienia tablice liczb napisanych slownie na tablice liczb korzystajac ze slownika pomocniczego dict_. Zwraca 'NIE' 

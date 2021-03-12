@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/iO2JdspPtx_KMGhBTCbLnKYe/site/?key=submissions - 100% points
+
 n = int(input())
 programs = sorted(list(map(int, input().split())))
 m = int(input())

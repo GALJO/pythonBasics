@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/uMEWCEG1XvCB2bZckVDJyk1i/site/?key=submissions - 0% points
+
 def sum_letters():
     """
     Oblicza ilosc wystapien kazdego znaku ze slowa.

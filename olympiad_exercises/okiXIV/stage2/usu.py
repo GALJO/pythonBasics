@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/GaEXAH5Qch_5uUAmF7FtwmMt/site/?key=statement - 10% points
+
 def make_help_sums(_tab):
     _res = []
     for _i in range(len(_tab)):

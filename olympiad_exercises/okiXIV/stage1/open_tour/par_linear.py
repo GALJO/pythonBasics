@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/g8UTPdAfFtio16W9-8q9hlt-/site/?key=statement - 0% points
+
 def is_number_even_digit(_number):
     _sum = 0
     for _i in range(len(str(_number))):

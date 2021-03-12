@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/QC6fme9FdH1Ii-HaY-qdZ21l/site/?key=submissions - 35%
+
 def main():
     """
     Znajduje dwa punkty, miedzy ktorymi jest najmniejsze nachylenie.

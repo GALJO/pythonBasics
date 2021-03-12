@@ -1,18 +1,11 @@
-# https://szkopul.edu.pl/problemset/problem/aQmcC7zKJ25u8GHcjaCv49e4/site/?key=submissions - 36% points
-
-import math
-
+# https://szkopul.edu.pl/problemset/problem/aQmcC7zKJ25u8GHcjaCv49e4/site/?key=submissions - 8% points
 
 def find_dividers(_x):
-    _small_dividers = []
-    _big_dividers = []
-    if _x == 1:
-        return [1]
-    for _i in range(1, math.ceil(math.sqrt(_x)) + 1):
+    _res = []
+    for _i in range(1, int(_x / 2) + 1):
         if _x % _i == 0:
-            _small_dividers.append(_i)
-            _big_dividers.append(_x // _i)
-    _res = _small_dividers + list(reversed(_big_dividers))
+            _res.append(_i)
+    _res.append(_x)
     return _res
 
 

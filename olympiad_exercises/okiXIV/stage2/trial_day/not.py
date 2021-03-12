@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/Vtr5pP-RRtjqnivWocv8xaad/site/?key=statement - 100% points
+
 def binary_search(_tab, _num):
     _start = 0
     _end = len(_tab) - 1

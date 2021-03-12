@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/DWvy9MNpOklIEXDvtVQZwGnO/site/?key=submissions - compilation failed
+
 def find_fraction(_desc):
     _res = {'p': 0, 'q': 0}
     for _i in range(len(_desc)):

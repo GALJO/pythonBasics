@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/-sW59iNCsLGhh8xyFPEmtn7F/site/?key=statement - 100% points
+
 def main():
     _hax_text = ''
     for _i in range(len(normal_text)):

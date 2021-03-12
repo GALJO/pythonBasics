@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/A859_vuqciUBllN7vf9w2NYL/site/?key=statement - 100% points
+
 inp = input().split()
 h = int(inp[0])
 m = int(inp[1])

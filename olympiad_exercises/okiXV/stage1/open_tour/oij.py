@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/WawC7bmwUyPKAG25CCKdFiCP/site/?key=submissions - 100% points
+
 inp = list(map(str, input()))
 
 count = 0

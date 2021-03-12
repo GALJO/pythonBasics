@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/e0qogVe4A5ivK_pTdUXL39FV/site/?key=statement - 41% points
+
 def find_path(_lvl, _next_levels):
     _done = [0] * n
     _path = []

@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/yOvtNVzBXZuw0QkrppTB2MW-/site/?key=submissions - 100% points
+
 inp = sorted(list(map(int, input().split())))
 
 if inp[0] == 0 and inp[1] == 0:

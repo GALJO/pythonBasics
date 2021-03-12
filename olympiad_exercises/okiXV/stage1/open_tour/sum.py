@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/Cgw52wK7lgkABFnX_GbP-kiD/site/?key=submissions - 100% points
+
 inp = input().split()
 n = int(inp[0])
 x = int(inp[1])

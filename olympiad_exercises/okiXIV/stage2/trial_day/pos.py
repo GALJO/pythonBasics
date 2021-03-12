@@ -1,14 +1,4 @@
-# def main():
-#     _result = 0
-#     for _i in range(a, b + 1):
-#         _price = 0
-#         for j in range(len(str(_i))):
-#             _price += int(str(_i)[j])
-#         print('{}: {}'.format(_i, _price))
-#         if _price > _result:
-#             _result = _price
-#     print('___')
-#     print(_result)
+# https://szkopul.edu.pl/problemset/problem/EoHxXpP-oYOLwSqFmAfGQJvW/site/?key=statement - 100% points
 
 def count_price(_numb_of_house):
     _prize = 0

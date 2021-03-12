@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/gfylBgxHvl-DByutdYjcr7dS/site/?key=statement - 100% points
+
 word = list(map(str, input()))
 count = 0
 if len(word) == 1:

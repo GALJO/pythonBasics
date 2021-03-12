@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/KFZaiUOIU7YpOYeKtRE47g1G/site/?key=statement - 100% points
+
 def main():
     _res = 1
     _i = 1

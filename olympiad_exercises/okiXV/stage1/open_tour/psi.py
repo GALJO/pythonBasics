@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/PmGw6Q605yIN6OgzW1VXc1cS/site/?key=submissions - 100% points
+
 n = int(input())
 c = list(map(int, input().split()))
 

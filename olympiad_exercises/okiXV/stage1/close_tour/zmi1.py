@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/uMEWCEG1XvCB2bZckVDJyk1i/site/?key=submissions - 0% points
+
 def main():
     dict_ = {}
     if len(set(word)) < 2:

@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/XJGk8X4KSGw8yuy5EYEy4rSK/site/?key=statement - 100% points
+
 def main():
     """
     Oblicza sume zoptymalizowych kwot mandatow. Aby kwota byla najmniejsza sklejam:
