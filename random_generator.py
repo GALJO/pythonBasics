@@ -9,7 +9,7 @@ numb = lib.random_number(_min, _max, amount)
 f = open("logs/rand_log.txt", 'w+')
 for i in range(len(numb)):
     print(numb[i], end='')
-    number = str(numb[i]) + '\n'
+    number = str(numb[i]) + ' '
     f.write(number)
 
 f.close()
