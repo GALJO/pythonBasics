@@ -1,3 +1,5 @@
+# https://szkopul.edu.pl/problemset/problem/aQmcC7zKJ25u8GHcjaCv49e4/site/?key=submissions - 100% points
+
 import math
 
 
@@ -11,6 +13,23 @@ def find_dividers(_x):
             _small_dividers.append(_i)
             _big_dividers.append(_x // _i)
     _res = _small_dividers + list(reversed(_big_dividers))
+    return _res
+
+
+def make_dividers(_tab1, _tab2):
+    if _tab1 >= _tab2:
+        _first = _tab1
+        _last = _tab2
+    else:
+        _first = _tab2
+        _last = _tab1
+    _res = []
+    for i in range(len(_first)):
+        for j in range(len(_last)):
+            _res.append(_first[i] * _last[j])
+    _res = set(_res)
+    _res = list(_res)
+    _res.sort()
     return _res
 
 
@@ -44,8 +63,9 @@ b = int(abcd[1])
 c = int(abcd[2])
 d = int(abcd[3])
 
-amount_of_cubes = c * d
-dividers = find_dividers(amount_of_cubes)
+dividers_c = find_dividers(c)
+dividers_d = find_dividers(d)
+dividers = make_dividers(dividers_c, dividers_d)
 pairs = make_pairs(dividers)
 
 print(cze())
